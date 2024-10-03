@@ -10,7 +10,7 @@ window.addEventListener("load", async() => {
   
 });
 
-const cuisine = new Map();
+let cuisine;
 
 function sleep (time) {
 	return new Promise((resolve) => setTimeout(resolve, time));
