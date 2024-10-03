@@ -1,0 +1,44 @@
+/* Container for flexboxes */
+section {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+	
+section img {
+	max-width: 100%;
+	height: auto;
+	/* Maintain aspect ratio */
+	flex: 1 1 auto;
+	/* Allow images to grow and shrink */
+	object-fit: cover;
+}
+	
+section .mapSearch {
+	-webkit-flex: 8;
+	-ms-flex: 8;
+	flex: 8;
+	text-align: center;	
+	padding: 10px;
+	max-width: 100%;
+}
+	
+section .mapSearch {
+	visibility: hidden;
+}
+	
+section .mapSearch #mapSearchButton {
+	max-width: 10%;
+	height: auto;		
+}
+	
+/* Optional: Add media queries for responsiveness */
+@media (max-width: 600px) {
+	section img {
+		flex: 1 1 100%;
+		/* Full width on small screens */
+	}
+}

@@ -2,56 +2,8 @@
 <html>
 <head>
 	<title>EatWhat</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<style>
-	
-	/* Container for flexboxes */
-	section {
-		display: -webkit-flex;
-		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-	}
-	
-	section img {
-		max-width: 100%;
-		height: auto;
-		/* Maintain aspect ratio */
-		flex: 1 1 auto;
-		/* Allow images to grow and shrink */
-		object-fit: cover;
-	}
-	
-	section .mapSearch {
-		-webkit-flex: 8;
-		-ms-flex: 8;
-		flex: 8;
-		text-align: center;	
-		padding: 10px;
-		max-width: 100%;
-	}
-	
-	section .mapSearch {
-		visibility: hidden;
-	}
-	
-	section .mapSearch #mapSearchButton {
-		max-width: 10%;
-		height: auto;		
-	}
-	
-	/* Optional: Add media queries for responsiveness */
-	@media (max-width: 600px) {
-		section img {
-			flex: 1 1 100%;
-			/* Full width on small screens */
-		}
-	}
-	
-	</style>	
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="stylesheet" href="css/style.css">	
 </head>
 
 <body>
@@ -82,100 +34,7 @@
 		
 		
 		
-		<script>
-		
-		function sleep (time) {
-			return new Promise((resolve) => setTimeout(resolve, time));
-		}
-		
-		let timeRoll = 100;
-		let cuisineToSearch = "";
-		
-		const cuisine = new Map([
-		[1, "AFRICAN"],
-		[2, "AMERICAN"],
-		[3, "BRAZILIAN"],
-		[4, "BRITISH"],
-		[5, "BRUNEIAN"],
-		[6, "CANADIAN"],
-		[7, "CANTONESE"],
-		[8, "CARIBBEAN"],
-		[9, "CHILEAN"],
-		[10, "CHINESE"],
-		[11, "COLOMBIAN"],
-		[12, "CROATIAN"],
-		[13, "CUBAN"],
-		[14, "CZECH"],
-		[15, "ECUADORIAN"],
-		[16, "FILIPINO"],
-		[17, "FINNISH"],
-		[18, "HAWAIIAN"],
-		[19, "GOAN"],
-		[20, "GERMAN"],
-		[21, "INDIAN"],
-		[22, "INDONESIAN"],
-		[23, "IRANIAN"],
-		[24, "IRAQI"],
-		[25, "JAMAICAN"],
-		[26, "JAPANESE"],
-		[27, "KAZAKH"],
-		[28, "KOREAN"],
-		[29, "LEBANESE"],
-		[30, "MALAYSIAN"],
-		[31, "MEXICAN"],
-		[32, "MONGOLIAN"],
-		[33, "OCCITAN"],
-		[34, "OKINAWAN"],
-		[35, "PERUVIAN"],
-		[36, "PORTUGUESE"],
-		[37, "RUSSIAN"],
-		[38, "SINGAPOREAN"],
-		[39, "SPANISH"],
-		[40, "SUDANESE"],
-		[41, "SWEDISH"],
-		[42, "SWISS"],
-		[43, "TAIWANESE"],
-		[44, "TIBETAN"],
-		[45, "TURKISH"],
-		[46, "UKARAINIAN"],
-		[47, "VIETNAMESE"],
-		[48, "FAST"],
-		[49, "FUSION"]
-		]);
-		
-		const rollQuotes = [
-		"Keep rollin' rollin' rollin'...",
-		"Letting Fate decide...",
-		"Round and round we go...",
-		"The Magic8 Ball says..."
-		];
-		
-		function roll() {
-			let quoteValue = Math.floor(Math.random() * (rollQuotes.length));		
-			document.getElementById('text').innerHTML = rollQuotes[quoteValue];
-			//document.getElementById("dice").src="images/dice-game.gif";
-			//document.getElementById("dice").disabled = true;
-			sleep(timeRoll).then(() => {
-				cuisinePick();
-				cuisinePick();
-			});
-		}
-		
-		function cuisinePick() {
-			let cuisineValue = Math.floor(Math.random() * (cuisine.size));
-			let cusineObj = cuisine.get(cuisineValue);
-			document.getElementById('text').innerHTML = cusineObj;
-			document.getElementById('mapSearchSection').style.visibility = 'visible';
-			cuisineToSearch = cusineObj;
-		}
-		
-		function searchForCuisine() {
-			var queryStart = 'https://www.google.com/maps/search/?api=1&query='; 
-			var query = queryStart + cuisineToSearch + '+FOOD';
-			window.location.href = query;
-		}
-		
-		</script>
+		<script src="js/main.js"></script>
 	</body>
 	
 </body>
